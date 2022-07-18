@@ -48,13 +48,13 @@ app.post("/contact", (req, res) => {
       function (err, info) {
         if (err) {
           console.log(err);
-          return res.send(false);
+          return res.send(err);
         }
         res.send(true);
       }
     );
   } catch (e) {
-    res.send(false);
+    res.send(e);
   }
 });
 
