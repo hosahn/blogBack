@@ -29,6 +29,9 @@ app.use(helmet());
 app.use(cors());
 app.use(bodyParser.json());
 app.use(limiter);
+app.get("/", (req, res) => {
+  res.send("This is Backend Server for hosahn.github.io");
+});
 app.get("/contact", (req, res) => {
   res.send("App Started with No Errors");
 });
