@@ -29,6 +29,9 @@ app.use(helmet());
 app.use(cors());
 app.use(bodyParser.json());
 app.use(limiter);
+app.get("/contact", (req, res) => {
+  res.send("App Started with No Errors");
+});
 app.post("/contact", (req, res) => {
   console.log(req.body);
   try {
