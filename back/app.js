@@ -36,6 +36,7 @@ app.get("/contact", (req, res) => {
   res.send("App Started with No Errors");
 });
 app.post("/contact", (req, res) => {
+  const text = req.body.email + req.body.message;
   console.log(req.body);
   try {
     mailer.sendMail(
@@ -43,7 +44,7 @@ app.post("/contact", (req, res) => {
         from: req.body.email,
         to: [address],
         subject: req.body.name || "[No subject]",
-        html: req.body.message || "[No message]",
+        html: text || "[No message]",
       },
       function (err, info) {
         if (err) {
